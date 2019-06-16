@@ -19,9 +19,7 @@ bot.onText(/стадіон/, (msg, match) => {
 })
 
 bot.onText(/розклад/, async (msg) => {
-	resmsg = ""
-	await request.get(url_lessons, (err, req, res) => {
-		resmsg = JSON.stringify(JSON.parse(res).data[0])
+	request.get(url_lessons, (err, req, res) => {
+		bot.sendMessage(msg.chat.id, res)
 	})
-	bot.sendMessage(msg.chat.id, resmsg)
 })
