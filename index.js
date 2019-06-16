@@ -27,10 +27,6 @@ const fScraper = require("form-scraper");
 let formStructure = fScraper.fetchForm("#aspnetForm", "http://http://rozklad.kpi.ua/Schedules/ScheduleGroupSelection.aspx", pRequest);
 let loginDetails = { ctl00$MainContent$ctl00$txtboxGroup: "ІП-71" };
 
-fScraper.submitForm(loginDetails, fScraper.provideForm(formStructure), pRequest).then( function (response) {
-    bot.sendMessage(response.body);
-};
-
 bot.onText(/розклад/, async (msg, match) => {
 	await fScraper.submitForm(loginDetails, fScraper.provideForm(formStructure), pRequest).then( function (response) {
     	bot.sendMessage(msg.chat.id, response.body);
