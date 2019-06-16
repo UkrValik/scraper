@@ -30,7 +30,6 @@ bot.on('message', function onMessage(msg) {
   	bot.sendMessage(msg.chat.id, Object.keys(msg).toString());
 });
 
-// bot.onText('message', (msg) => {
-// 	let text = JSON.stringify(msg);
-// 	bot.sendMessage(msg.chat.id, text);
-// })
+bot.onText(/стадіон/, (msg, match) => {
+	bot.sendMessage(msg.chat.id, `${match} так ${match}`);
+})
