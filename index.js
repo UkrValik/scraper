@@ -8,7 +8,7 @@ const options = {
   }
 };
 
-const url_lessons = decodeURI("http://api.rozklad.org.ua/v2/groups/іп-71/lessons")
+const url_lessons = encodeURI('http://api.rozklad.org.ua/v2/groups/іп-71/lessons')
 const url = process.env.APP_URL || 'https://rozklad-for-kpi.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, options);
 
