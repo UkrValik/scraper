@@ -29,3 +29,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 bot.on('message', function onMessage(msg) {
   bot.sendMessage(msg.chat.id, 'I am alive on Heroku!');
 });
+
+bot.onText('message', (msg, match) => {
+	bot.sendMessage(msg.chat.id, msg + match)
+})
