@@ -22,6 +22,6 @@ bot.onText(/розклад/, async (msg) => {
 	request.get(url_lessons, (err, req, res) => {
 		res = JSON.parse(res)
 		res = res.data[0]
-		bot.sendMessage(msg.chat.id, res)
+		bot.sendMessage(msg.chat.id, JSON.stringify(res))
 	})
 })
