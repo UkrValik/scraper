@@ -27,7 +27,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 
 // Just to ping!
 bot.on('message', function onMessage(msg) {
-  	bot.sendMessage(msg.chat.id, 'I am alive on Heroku!');
+  	bot.sendMessage(msg.chat.id, msg);
 });
 
 // bot.onText('message', (msg) => {
