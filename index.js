@@ -12,16 +12,20 @@ const url_lessons = encodeURI('http://api.rozklad.org.ua/v2/groups/іп-71/lesso
 const url = process.env.APP_URL || 'https://rozklad-for-kpi.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, options);
 
+const make_request = (u) => {
+	request.get(u, (err, req, res) => {
+		return res
+	})
+}
+
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
 bot.onText(/стадіон/, (msg, match) => {
 	bot.sendMessage(msg.chat.id, `${match} так ${match}`);
 })
 
-bot.onText(/розклад/, (msg) => {
-	request.get(url_lessons, (err, req, res) => {
-		res = JSON.parse(res)
-		res = res.data[0]
-		bot.sendMessage(msg.chat.id, typeof res)
-	})
+bot.onText(/розклад/, async (msg) => {
+	let lessons = await make_request(url_lessons)
+	lessons = JSON.parse(lessons).data[0]
+	bot.sendMessage(msg.chat.id, `lessons:\n${lessons}`)
 })
