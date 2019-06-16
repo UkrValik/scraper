@@ -27,7 +27,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 
 // Just to ping!
 bot.on('message', function onMessage(msg) {
-  	bot.sendMessage(msg.chat.id, typeof msg);
+  	bot.sendMessage(msg.chat.id, msg.toString());
 });
 
 // bot.onText('message', (msg) => {
