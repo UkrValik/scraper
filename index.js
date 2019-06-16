@@ -30,7 +30,7 @@ bot.on('message', function onMessage(msg) {
   	bot.sendMessage(msg.chat.id, 'I am alive on Heroku!');
 });
 
-bot.onText('message', (msg) => {
-	let text = JSON.stringify(msg);
-	bot.sendMessage(msg.chat.id, text);
-})
+// bot.onText('message', (msg) => {
+// 	let text = JSON.stringify(msg);
+// 	bot.sendMessage(msg.chat.id, text);
+// })
