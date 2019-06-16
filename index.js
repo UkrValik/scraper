@@ -18,10 +18,10 @@ bot.onText(/стадіон/, (msg, match) => {
 	bot.sendMessage(msg.chat.id, `${match} так ${match}`);
 })
 
-bot.onText(/розклад/, async (msg) => {
+bot.onText(/розклад/, (msg) => {
 	request.get(url_lessons, (err, req, res) => {
 		res = JSON.parse(res)
 		res = res.data[0]
-		bot.sendMessage(msg.chat.id, JSON.stringify(res))
+		bot.sendMessage(msg.chat.id, typeof res)
 	})
 })
