@@ -20,3 +20,7 @@ bot.onText('*', (msg, match) => {
 	bot.sendMessage(msg.chat.id, 'Hello')
 	bot.sendMessage(msg.chat.id, match)
 })
+
+bot.on('message', function onMessage(msg) {
+  bot.sendMessage(msg.chat.id, 'I am alive on Heroku!');
+});
