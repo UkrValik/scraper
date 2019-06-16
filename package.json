@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/UkrValik/scraper#readme",
   "dependencies": {
+    "form-scraper": "0.0.4",
     "node-telegram-bot-api": "^0.30.0"
   }
 }
