@@ -1,0 +1,26 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "Scraper for schedule",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UkrValik/scraper.git"
+  },
+  "keywords": [
+    "scraper"
+  ],
+  "author": "UkrValik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UkrValik/scraper/issues"
+  },
+  "homepage": "https://github.com/UkrValik/scraper#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0"
+  }
+}
