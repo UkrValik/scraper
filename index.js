@@ -8,28 +8,20 @@ const options = {
   }
 };
 
+const url_lessons = decodeURI("http://api.rozklad.org.ua/v2/groups/іп-71/lessons")
 const url = process.env.APP_URL || 'https://rozklad-for-kpi.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, options);
 
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
-bot.on('message', function onMessage(msg) {
-  	bot.sendMessage(msg.chat.id, Object.keys(msg).toString());
-});
-
 bot.onText(/стадіон/, (msg, match) => {
 	bot.sendMessage(msg.chat.id, `${match} так ${match}`);
 })
 
-const pRequest = require("promisified-request").create();
-const fScraper = require("form-scraper");
-
-let formStructure = fScraper.fetchForm("#aspnetForm", "http://http://rozklad.kpi.ua/Schedules/ScheduleGroupSelection.aspx", pRequest);
-let loginDetails = { ctl00$MainContent$ctl00$txtboxGroup: "ІП-71" };
-
-bot.onText(/розклад/, async (msg, match) => {
-	await fScraper.submitForm(loginDetails, fScraper.provideForm(formStructure), pRequest).then( function (response) {
-    	bot.sendMessage(msg.chat.id, response.body);
-	};
+bot.onText(/розклад/, async (msg) => {
+	resmsg = ""
+	await request.get(url_lessons, (err, req, res) => {
+		resmsg = JSON.stringify(JSON.parse(res).data[0])
+	})
+	bot.sendMessage(msg.chat.id, resmsg)
 })
-
