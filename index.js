@@ -25,7 +25,7 @@ bot.onText(/стадіон/, (msg, match) => {
 })
 
 bot.onText(/розклад/, async (msg) => {
-	let lessons = await make_request(url_lessons)
-	lessons = JSON.parse(lessons).data[0]
-	bot.sendMessage(msg.chat.id, `lessons:\n${lessons}`)
+	let lessons = await make_request(url_lessons);
+	lessons = JSON.parse(lessons).data[0];
+	bot.sendMessage(msg.chat.id, typeof lessons);
 })
