@@ -10,7 +10,7 @@ const options = {
     }
 };
 
-const URL = 'https://rozklad-for-kpi.herokuapp.com/'
+const URL = 'https://rozklad-for-kpi.herokuapp.com'
 
 const bot = new TelegramBot(TOKEN, options)
 
