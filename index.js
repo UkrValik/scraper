@@ -2,6 +2,7 @@
 
 const TOKEN = process.env.TELEGRAM_TOKEN || '866032024:AAFGQBML2lMv0o5Jb5HoNKj2l5KIgbfj4qA';
 const TelegramBot = require('node-telegram-bot-api');
+const Group = require('./src/Group.js')
 const options = {
   webHook: {
     port: process.env.PORT
@@ -18,14 +19,16 @@ const make_request = (u) => {
 	})
 }
 
+let group = new Group()
+
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
 bot.onText(/стадіон/, (msg, match) => {
 	bot.sendMessage(msg.chat.id, `${match} так ${match}`);
 })
 
-bot.onText(/розклад/, async (msg) => {
-	let lessons = await make_request(url_lessons);
-	lessons = JSON.parse(lessons).data[0];
-	bot.sendMessage(msg.chat.id, typeof lessons);
+bot.onText(/група (.*)/, async (msg, match) => {
+	const groupName = match[1]
+	group.add(msg.chat.id, groupName)
+	bot.sendMessage(msg.chat.id, `Ваша група ${match}`)
 })
