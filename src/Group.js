@@ -87,6 +87,7 @@ function Group() {
 		let groupName = this.getGroupName(chatID)
 		let schedule = await getSchedule(groupName)
 		let ans = []
+		let f = true
 		schedule.firstWeek.forEach(day => {
 			day.forEach(element => {
 				if (element.today && f) {
@@ -106,5 +107,14 @@ function Group() {
 		return ans
 	}
 }
+
+// const dosmth = async () => {
+// 	let group = new Group()
+// 	group.addGroup(1234, 'ІП-71')
+// 	let roz = await group.week(1234)
+// 	console.log(roz)
+// }
+
+// dosmth()
 
 module.exports = Group
