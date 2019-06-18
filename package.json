@@ -26,5 +26,8 @@
     "node-fetch": "^2.6.0",
     "node-telegram-bot-api": "^0.30.0",
     "querystring": "^0.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
   }
 }
