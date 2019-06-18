@@ -29,6 +29,6 @@ bot.onText(/стадіон/, (msg, match) => {
 
 bot.onText(/група (.*)/, (msg, match) => {
 	const groupName = match[1]
-	group.add(msg.chat.id, groupName)
+	group.addGroup(msg.chat.id, groupName)
 	bot.sendMessage(msg.chat.id, `Ваша група ${match}`)
 })
