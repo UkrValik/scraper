@@ -88,7 +88,7 @@ bot.onText(/тиждень/, async (msg, match) => {
 		resmsg += lessons[2][i].lesson[1] ? '    Викладач: ' + lessons[2][i].lesson[1] + '\n' : '    -\n'
 		resmsg += lessons[2][i].lesson[2] ? '    Аудиторія: ' + lessons[2][i].lesson[2] + '\n' : '    -\n'
 	}
-	resmsg = "    Четвер\n"
+	resmsg += "    Четвер\n"
 	for (let i = 0; i < lessons[3].length; ++i) {
 		resmsg += (i + 1).toString() + ') '
 		resmsg += lessons[3][i].lesson[0] ? 'Предмет: ' + lessons[3][i].lesson[0] + '\n' : '-\n'
