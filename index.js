@@ -35,5 +35,12 @@ bot.onText(/група (.*)/, (msg, match) => {
 
 bot.onText(/сьогодні/, async (msg, match) => {
 	let lessons = await group.today(msg.chat.id)
-	bot.sendMessage(msg.chat.id, typeof lessons)
+	let resmsg = ""
+	for (let i = 0; i < lessons.length; ++i) {
+		resmsg += (i + 1).toString() + ') '
+		resmsg += 'Предмет: ' + lessons[i][0] + '\n'
+		resmsg += 'Викладач: ' + lessons[i][1] + '\n'
+		resmsg += 'Аудиторія: ' + lessons[i][2] + '\n'
+	}
+	bot.sendMessage(msg.chat.id, resmsg)
 })
