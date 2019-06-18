@@ -73,5 +73,6 @@ bot.onText(/тиждень/, async (msg, match) => {
 		resmsg += lessons[0][i].lesson[1] ? '  Викладач: ' + lessons[0][i].lesson[1] + '\n' : '-\n'
 		resmsg += lessons[0][i].lesson[2] ? '  Аудиторія: ' + lessons[0][i].lesson[2] + '\n' : '-\n'
 	}
+	resmsg = lessons.length.toString()
 	bot.sendMessage(msg.chat.id, resmsg)	
 })
