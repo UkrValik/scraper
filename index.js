@@ -32,3 +32,8 @@ bot.onText(/група (.*)/, (msg, match) => {
 	group.addGroup(msg.chat.id, groupName)
 	bot.sendMessage(msg.chat.id, `Ваша група ${groupName}`)
 })
+
+bot.onText(/сьогодні/, async (msg, match) => {
+	let lessons = await group.today(msg.chat.id)
+	bot.sendMessage(msg.chat.id, lessons)
+})
