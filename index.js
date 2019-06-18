@@ -81,13 +81,13 @@ bot.onText(/тиждень/, async (msg, match) => {
 		resmsg += lessons[1][i].lesson[1] ? '    Викладач: ' + lessons[1][i].lesson[1] + '\n' : '    -\n'
 		resmsg += lessons[1][i].lesson[2] ? '    Аудиторія: ' + lessons[1][i].lesson[2] + '\n' : '    -\n'
 	}
-	// resmsg += "      Середа\n"
-	// for (let i = 0; i < lessons[2].length; ++i) {
-	// 	resmsg += (i + 1).toString() + ') '
-	// 	resmsg += lessons[2][i].lesson[0] ? 'Предмет: ' + lessons[2][i].lesson[0] + '\n' : '-\n'
-	// 	resmsg += lessons[2][i].lesson[1] ? '    Викладач: ' + lessons[2][i].lesson[1] + '\n' : '    -\n'
-	// 	resmsg += lessons[2][i].lesson[2] ? '    Аудиторія: ' + lessons[2][i].lesson[2] + '\n' : '    -\n'
-	// }
+	resmsg += "      Середа\n"
+	for (let i = 0; i < lessons[2].length; ++i) {
+		resmsg += (i + 1).toString() + ') '
+		resmsg += lessons[2][i].lesson[0] ? 'Предмет: ' + lessons[2][i].lesson[0] + '\n' : '-\n'
+		resmsg += lessons[2][i].lesson[1] ? '    Викладач: ' + lessons[2][i].lesson[1] + '\n' : '    -\n'
+		resmsg += lessons[2][i].lesson[2] ? '    Аудиторія: ' + lessons[2][i].lesson[2] + '\n' : '    -\n'
+	}
 	// let resmsg = "    Четвер\n"
 	// for (let i = 0; i < lessons[3].length; ++i) {
 	// 	resmsg += (i + 1).toString() + ') '
