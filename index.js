@@ -30,7 +30,8 @@ bot.onText(/стадіон/, (msg, match) => {
 bot.onText(/група (.*)/, (msg, match) => {
 	const groupName = match[1]
 	group.addGroup(msg.chat.id, groupName)
-	bot.sendMessage(msg.chat.id, `Ваша група ${groupName}`)
+	let resmsg = `Ваша група ${groupName}`
+	bot.sendMessage(msg.chat.id, resmsg)
 })
 
 bot.onText(/сьогодні/, async (msg, match) => {
@@ -38,13 +39,12 @@ bot.onText(/сьогодні/, async (msg, match) => {
 	let resmsg = ""
 	for (let i = 0; i < lessons.length; ++i) {
 		resmsg += (i + 1).toString() + ') '
-		if (lessons[i][0] === undefined) {
-			resmsg += '-\n'
-		} else {
-			resmsg += 'Предмет: ' + lessons[i][0] + '\n'
-			resmsg += 'Викладач: ' + lessons[i][1] + '\n'
-			resmsg += 'Аудиторія: ' + lessons[i][2] + '\n'
-		}
+		resmsg += lessons[i][0] ? 'Предмет: ' + lessons[i][0] + '\n' : '-'
+		resmsg += lessons[i][1] ? 'Викладач: ' + lessons[i][1] + '\n' : '-'
+		resmsg += lessons[i][2] ? 'Аудиторія: ' + lessons[i][2] + '\n' : '-'
+	}
+	if (resmsg === "") {
+		resmsg = "Ви вказали невірний номер групи."
 	}
 	bot.sendMessage(msg.chat.id, resmsg)
 })
@@ -54,13 +54,24 @@ bot.onText(/завтра/, async (msg, match) => {
 	let resmsg = ""
 	for (let i = 0; i < lessons.length; ++i) {
 		resmsg += (i + 1).toString() + ') '
-		if (lessons[i][0] === undefined) {
-			resmsg += '-\n'
-		} else {
-			resmsg += 'Предмет: ' + lessons[i][0] + '\n'
-			resmsg += 'Викладач: ' + lessons[i][1] + '\n'
-			resmsg += 'Аудиторія: ' + lessons[i][2] + '\n'
-		}
+		resmsg += lessons[i][0] ? 'Предмет: ' + lessons[i][0] + '\n' : '-'
+		resmsg += lessons[i][1] ? 'Викладач: ' + lessons[i][1] + '\n' : '-'
+		resmsg += lessons[i][2] ? 'Аудиторія: ' + lessons[i][2] + '\n' : '-'
+	}
+	if (resmsg === "") {
+		resmsg = "Ви вказали невірний номер групи."
+	}
+	bot.sendMessage(msg.chat.id, resmsg)	
+})
+
+bot.onText(/тиждень/, async (msg, match) => {
+	let lessons = await group.week(msg.chat.id)
+	let resmsg = "     Понеділок\n"
+	for (let i = 0; i < lessons[0].length; ++i) {
+		resmsg += (i + 1).toString() + ') '
+		resmsg += lessons[i][0] ? 'Предмет: ' + lessons[i][0] + '\n' : '-'
+		resmsg += lessons[i][1] ? 'Викладач: ' + lessons[i][1] + '\n' : '-'
+		resmsg += lessons[i][2] ? 'Аудиторія: ' + lessons[i][2] + '\n' : '-'
 	}
 	bot.sendMessage(msg.chat.id, resmsg)	
 })
