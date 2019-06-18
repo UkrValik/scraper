@@ -106,3 +106,5 @@ function Group() {
 		return ans
 	}
 }
+
+module.exports = Group
