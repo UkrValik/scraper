@@ -82,6 +82,7 @@ function Group() {
 		}
 		let lessons = []
 		ans.forEach(element => element.forEach(lesson => lessons.push(lesson.lesson)))
+		lessons.shift()
 		return lessons	
 	}
 	this.week = async function(chatID) {
