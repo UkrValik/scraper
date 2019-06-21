@@ -17,6 +17,10 @@ let group = new Group()
 
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
+bot.onText(/.*/, (msg) => {
+	bot.sendMessage(msg.chat.id, "Im alive")
+})
+
 bot.onText(/стадіон/, (msg, match) => {
 	bot.sendMessage(msg.chat.id, `${match} так ${match}`);
 })
