@@ -52,7 +52,7 @@ bot.onText(/завтра/, async (msg, match) => {
 		resmsg += lessons[i][1] ? '    Викладач: ' + lessons[i][1] + '\n' : '    -\n'
 		resmsg += lessons[i][2] ? '    Аудиторія: ' + lessons[i][2] + '\n' : '    -\n'
 	}
-	if (resmsg == "") {
+	if (resmsg == "-\n-\n-\n") {
 		resmsg = "Ви вказали невірний номер групи."
 	}
 	bot.sendMessage(msg.chat.id, resmsg)	
