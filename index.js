@@ -21,42 +21,42 @@ bot.onText(/стадіон/, (msg, match) => {
 	bot.sendMessage(msg.chat.id, `${match} так ${match}`);
 })
 
-bot.onText(/група (.*)/, (msg, match) => {
-	const groupName = match[1]
-	group.addGroup(msg.chat.id, groupName)
-	let resmsg = `Ваша група ${groupName}`
-	bot.sendMessage(msg.chat.id, resmsg)
-})
+// bot.onText(/група (.*)/, (msg, match) => {
+// 	const groupName = match[1]
+// 	group.addGroup(msg.chat.id, groupName)
+// 	let resmsg = `Ваша група ${groupName}`
+// 	bot.sendMessage(msg.chat.id, resmsg)
+// })
 
-bot.onText(/сьогодні/, async (msg, match) => {
-	let lessons = await group.today(msg.chat.id)
-	let resmsg = ""
-	for (let i = 0; i < lessons.length; ++i) {
-		resmsg += (i + 1).toString() + ') '
-		resmsg += lessons[i][0] ? 'Предмет: ' + lessons[i][0] + '\n' : '-\n'
-		resmsg += lessons[i][1] ? '    Викладач: ' + lessons[i][1] + '\n' : '    -\n'
-		resmsg += lessons[i][2] ? '    Аудиторія: ' + lessons[i][2] + '\n' : '    -\n'
-	}
-	if (resmsg == "") {
-		resmsg = "Ви вказали невірний номер групи."
-	}
-	bot.sendMessage(msg.chat.id, resmsg)
-})
+// bot.onText(/сьогодні/, async (msg, match) => {
+// 	let lessons = await group.today(msg.chat.id)
+// 	let resmsg = ""
+// 	for (let i = 0; i < lessons.length; ++i) {
+// 		resmsg += (i + 1).toString() + ') '
+// 		resmsg += lessons[i][0] ? 'Предмет: ' + lessons[i][0] + '\n' : '-\n'
+// 		resmsg += lessons[i][1] ? '    Викладач: ' + lessons[i][1] + '\n' : '    -\n'
+// 		resmsg += lessons[i][2] ? '    Аудиторія: ' + lessons[i][2] + '\n' : '    -\n'
+// 	}
+// 	if (resmsg == "") {
+// 		resmsg = "Ви вказали невірний номер групи."
+// 	}
+// 	bot.sendMessage(msg.chat.id, resmsg)
+// })
 
-bot.onText(/завтра/, async (msg, match) => {
-	let lessons = await group.tomorrow(msg.chat.id)
-	let resmsg = ""
-	for (let i = 0; i < lessons.length; ++i) {
-		resmsg += (i + 1).toString() + ') '
-		resmsg += lessons[i][0] ? 'Предмет: ' + lessons[i][0] + '\n' : '-\n'
-		resmsg += lessons[i][1] ? '    Викладач: ' + lessons[i][1] + '\n' : '    -\n'
-		resmsg += lessons[i][2] ? '    Аудиторія: ' + lessons[i][2] + '\n' : '    -\n'
-	}
-	if (resmsg == "") {
-		resmsg = "Ви вказали невірний номер групи."
-	}
-	bot.sendMessage(msg.chat.id, resmsg)	
-})
+// bot.onText(/завтра/, async (msg, match) => {
+// 	let lessons = await group.tomorrow(msg.chat.id)
+// 	let resmsg = ""
+// 	for (let i = 0; i < lessons.length; ++i) {
+// 		resmsg += (i + 1).toString() + ') '
+// 		resmsg += lessons[i][0] ? 'Предмет: ' + lessons[i][0] + '\n' : '-\n'
+// 		resmsg += lessons[i][1] ? '    Викладач: ' + lessons[i][1] + '\n' : '    -\n'
+// 		resmsg += lessons[i][2] ? '    Аудиторія: ' + lessons[i][2] + '\n' : '    -\n'
+// 	}
+// 	if (resmsg == "") {
+// 		resmsg = "Ви вказали невірний номер групи."
+// 	}
+// 	bot.sendMessage(msg.chat.id, resmsg)	
+// })
 
 // bot.onText(/тиждень/, async (msg, match) => {
 // 	let lessons = await group.week(msg.chat.id)
