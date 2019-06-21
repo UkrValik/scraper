@@ -13,12 +13,6 @@ const url_lessons = encodeURI('http://api.rozklad.org.ua/v2/groups/іп-71/lesso
 const url = process.env.APP_URL || 'https://rozklad-for-kpi.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, options);
 
-const make_request = (u) => {
-	request.get(u, (err, req, res) => {
-		return res
-	})
-}
-
 let group = new Group()
 
 bot.setWebHook(`${url}/bot${TOKEN}`);
