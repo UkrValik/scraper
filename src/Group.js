@@ -106,7 +106,6 @@ function Group() {
 				}
 			})
 		})
-		
 		return ans
 	}
 }
