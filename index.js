@@ -62,20 +62,6 @@ bot.onText(/тиждень/, async (msg, match) => {
 	let lessons = await group.week(msg.chat.id)
 	lessons = lessons[0]
 	let resmsg = "     Понеділок\n"
-	// let resmsg = ""
-	// lessons.forEach(day => {
-	// 	resmsg += day[0] + "\n"
-	// 	day.shift()
-	// 	let i = 0
-	// 	day.forEach(lesson => {
-	// 		i++
-	// 		resmsg += i.toString() + ') '
-	// 		resmsg += lesson.lesson[0] ? 'Предмет: ' + lesson.lesson[0] + '\n' : '-\n'
-	// 		resmsg += lesson.lesson[1] ? '    Викладач: ' + lesson.lesson[1] + '\n' : '    -\n'
-	// 		resmsg += lesson.lesson[2] ? '    Аудиторія: ' + lesson.lesson[2] + '\n' : '    -\n'
-	// 	})
-	// })
-
 	for (let i = 1; i < lessons[0].length; ++i) {
 		resmsg += (i).toString() + ') '
 		resmsg += lessons[0][i].lesson[0] ? 'Предмет: ' + lessons[0][i].lesson[0] + '\n' : '-\n'
