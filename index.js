@@ -1,6 +1,6 @@
 'use strict'
 
-const TOKEN = '815359260:AAEs9sLQO8S6teExJXTg9zCUJbO6mdNr17M';
+const TOKEN = '866032024:AAHD4wCe4jUcW5vFx42n_xZZChgb4TtjdaQ';
 const TelegramBot = require('node-telegram-bot-api');
 const Group = require('./src/Group.js')
 const options = {
