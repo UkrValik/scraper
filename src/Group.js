@@ -106,6 +106,13 @@ function Group() {
 				}
 			})
 		})
+		ans = ans[0]
+		ans[0][0].lesson[0] = "Понеділок"
+		ans[1][0].lesson[0] = "Вівторок"
+		ans[2][0].lesson[0] = "Середа"
+		ans[3][0].lesson[0] = "Четвер"
+		ans[4][0].lesson[0] = "П'ятниця"
+		ans[5][0].lesson[0] = "Субота"
 		return ans
 	}
 }
