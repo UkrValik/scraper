@@ -22,7 +22,7 @@
   "homepage": "https://github.com/UkrValik/scraper#readme",
   "dependencies": {
     "form-scraper": "0.0.4",
-    "jsdom": "^15.1.1",
+    "jsdom": "^16.5.0",
     "node-fetch": "^2.6.0",
     "node-telegram-bot-api": "^0.30.0",
     "querystring": "^0.2.0"
