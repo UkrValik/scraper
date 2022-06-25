@@ -23,7 +23,7 @@
   "dependencies": {
     "form-scraper": "0.0.4",
     "jsdom": "^15.1.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "node-telegram-bot-api": "^0.30.0",
     "querystring": "^0.2.0"
   },
